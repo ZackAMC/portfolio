@@ -6,6 +6,9 @@ import PuntosIzq from "@/img/PuntosIzq.astro"
 import ManchaDerNa from "@/img/ManchaDerNa.astro"
 import ManchaDerNe from "@/img/ManchaDerNe.astro"
 import PuntosDer from "@/img/PuntosDer.astro"
+
+import Typed from 'typed.js';
+
 ---
 
 <section
@@ -17,8 +20,8 @@ import PuntosDer from "@/img/PuntosDer.astro"
     <PuntosIzq />
     <main class="flex flex-col items-center">
         <Logo />
-        <div class="w-[250px] mt-5 text-black">
-            <p>Desarrollador Front-End</p>
+        <div class="w-[250px] mt-5 text-black font-['MuseoModerno']">
+            <p id="textoAnimado" class="border-b-2 border-gray-200 border-dashed">Desarrollador Front-End</p>
             <p>Ilustrador</p>
         </div>
     </main>
@@ -26,3 +29,4 @@ import PuntosDer from "@/img/PuntosDer.astro"
     <ManchaDerNe />
     <PuntosDer />
 </section>
+
