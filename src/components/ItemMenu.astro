@@ -1,0 +1,13 @@
+---
+interface Props {
+    link: string
+}
+
+const { link } = Astro.props
+---
+
+<li class=" bg-white/20 p-1 rounded-full text-white hover:scale-125 transition-transform">
+    <a href={link}>
+        <slot />
+    </a>
+</li>

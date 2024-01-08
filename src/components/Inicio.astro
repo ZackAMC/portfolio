@@ -8,16 +8,21 @@ import ManchaDerNe from "@/img/ManchaDerNe.astro"
 import PuntosDer from "@/img/PuntosDer.astro"
 ---
 
-<section id="home" class="h-screen relative">
+<section
+    id="home"
+    class="h-screen relative flex justify-center items-center"
+>
     <ManchaIzqNa />
     <ManchaIzqNe />
     <PuntosIzq />
-    <main>
+    <main class="flex flex-col items-center">
         <Logo />
+        <div class="w-[250px] mt-5 text-black">
+            <p>Desarrollador Front-End</p>
+            <p>Ilustrador</p>
+        </div>
     </main>
     <ManchaDerNa />
     <ManchaDerNe />
     <PuntosDer />
 </section>
-
-
