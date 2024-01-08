@@ -1,9 +1,44 @@
-<div class=" absolute top-0 left-0 text-transparent translate-x-[-20%] translate-y-[-15%]">
-    <svg
-        width="259"
-        height="576"
-        viewBox="0 0 259 576"
-    >
-        <path d="M258.846 1.38207C258.846 1.38207 200.148 2.42224 207.291 74.1099C214.434 145.798 301.913 290.584 226.67 351.989C151.427 413.393 -2.08803 416.115 1.18853 575.493" stroke="white" fill="none" stroke-width="2" stroke-dasharray="10 15"/>
-    </svg>
+<div class=" z-[-1] absolute top-0 left-0 translate-x-[-85%] translate-y-[10%] lg:translate-x-[-65%] lg:translate-y-[-5%] xl:translate-x-[-35%]">
+    <div id="puntosIzq">
+        <svg
+            width="259"
+            height="576"
+            viewBox="0 0 259 576"
+        >
+            <path d="M258.846 1.38207C258.846 1.38207 200.148 2.42224 207.291 74.1099C214.434 145.798 301.913 290.584 226.67 351.989C151.427 413.393 -2.08803 416.115 1.18853 575.493" stroke="white" fill="none" stroke-width="2" stroke-dasharray="10 15"/>
+        </svg>
+    </div>
 </div>
+
+
+<style>
+    @keyframes flujoc{
+        0%{
+            transform: translateX(20%) translateY(0%) rotate(0deg) scale(1);
+            -webkit-transform: translateX(20%) translateY(0%) rotate(0deg) scale(1);
+            -moz-transform: translateX(20%) translateY(0%) rotate(0deg) scale(1);
+            -ms-transform: translateX(20%) translateY(0%) rotate(0deg) scale(1);
+            -o-transform: translateX(20%) translateY(0%) rotate(0deg) scale(1);
+            stroke-dashoffset: 0;
+        }
+        50%{
+            transform: translateX(30%) translateY(50%) rotate(-50deg) scale(.8);
+            -webkit-transform: translateX(30%) translateY(50%) rotate(-50deg) scale(.8);
+            -moz-transform: translateX(30%) translateY(50%) rotate(-50deg) scale(.8);
+            -ms-transform: translateX(30%) translateY(50%) rotate(-50deg) scale(.8);
+            -o-transform: translateX(30%) translateY(50%) rotate(-50deg) scale(.8);
+        }
+        100%{
+            transform: translateX(20%) translateY(0%) rotate(0deg) scale(1);
+            -webkit-transform: translateX(20%) translateY(0%) rotate(0deg) scale(1);
+            -moz-transform: translateX(20%) translateY(0%) rotate(0deg) scale(1);
+            -ms-transform: translateX(20%) translateY(0%) rotate(0deg) scale(1);
+            -o-transform: translateX(20%) translateY(0%) rotate(0deg) scale(1);
+        }
+    }
+    svg{
+        stroke-dasharray: 1000;
+        stroke-dashoffset: 1000;
+        animation: flujoc 80s ease infinite;
+    }
+</style>

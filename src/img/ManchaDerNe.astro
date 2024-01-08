@@ -1,10 +1,45 @@
-<div class="absolute top-1/2 right-[0] translate-y-[-50%] translate-x-[30%] z-[-2]">
-    <svg
-        width="350"
-        height="487"
-        viewBox="0 0 350 487"
-        fill="none"
-    >
-        <path d="M92.2408 447.707C125.442 520.417 281.505 494.63 334.6 345.549C387.694 196.469 278.065 171.774 286.892 89.5917C295.72 7.40895 220.76 -29.326 154.63 27.2275C88.4998 83.781 119.924 129.297 85.34 184.746C50.7564 240.196 3.53983 250.241 0.21218 312.299C-3.11549 374.356 59.0384 374.998 92.2408 447.707Z" fill="black"/>
-    </svg>
+<div class="absolute top-0 right-0 z-[-2] translate-x-[90%] translate-y-[20%] lg:translate-x-[60%] lg:translate-y-[50%] xl:translate-x-[37%]">
+    <div id="negDer">
+        <svg
+            width="350"
+            height="487"
+            viewBox="0 0 350 487"
+            fill="none"
+        >
+            <path d="M92.2408 447.707C125.442 520.417 281.505 494.63 334.6 345.549C387.694 196.469 278.065 171.774 286.892 89.5917C295.72 7.40895 220.76 -29.326 154.63 27.2275C88.4998 83.781 119.924 129.297 85.34 184.746C50.7564 240.196 3.53983 250.241 0.21218 312.299C-3.11549 374.356 59.0384 374.998 92.2408 447.707Z" fill="black"/>
+        </svg>
+    </div>
 </div>
+
+
+<style>
+    @keyframes flujob{
+        0%{
+            transform: translateX(20%) translateY(0%) rotate(0deg) scale(1);
+            -webkit-transform: translateX(20%) translateY(0%) rotate(0deg) scale(1);
+            -moz-transform: translateX(20%) translateY(0%) rotate(0deg) scale(1);
+            -ms-transform: translateX(20%) translateY(0%) rotate(0deg) scale(1);
+            -o-transform: translateX(20%) translateY(0%) rotate(0deg) scale(1);
+        }
+        50%{
+            transform: translateX(-30%) translateY(50%) rotate(50deg) scale(.8);
+            -webkit-transform: translateX(-30%) translateY(50%) rotate(50deg) scale(.8);
+            -moz-transform: translateX(-30%) translateY(50%) rotate(50deg) scale(.8);
+            -ms-transform: translateX(-30%) translateY(50%) rotate(50deg) scale(.8);
+            -o-transform: translateX(-30%) translateY(50%) rotate(50deg) scale(.8);
+        }
+        100%{
+            transform: translateX(20%) translateY(0%) rotate(0deg) scale(1);
+            -webkit-transform: translateX(20%) translateY(0%) rotate(0deg) scale(1);
+            -moz-transform: translateX(20%) translateY(0%) rotate(0deg) scale(1);
+            -ms-transform: translateX(20%) translateY(0%) rotate(0deg) scale(1);
+            -o-transform: translateX(20%) translateY(0%) rotate(0deg) scale(1);
+        }
+    }
+    @media (min-width: 1040px){
+        svg{
+            animation: flujob 80s ease infinite;
+        }
+    }
+    
+</style>

@@ -1,32 +1,69 @@
 ---
-import Logo from "@/img/Logo.astro"
+import { Picture } from "astro:assets"
 import ManchaIzqNa from "@/img/ManchaIzqNa.astro"
 import ManchaIzqNe from "@/img/ManchaIzqNe.astro"
 import PuntosIzq from "@/img/PuntosIzq.astro"
 import ManchaDerNa from "@/img/ManchaDerNa.astro"
 import ManchaDerNe from "@/img/ManchaDerNe.astro"
 import PuntosDer from "@/img/PuntosDer.astro"
-
-import Typed from 'typed.js';
-
+import logo from "@/img/logo.png"
 ---
 
 <section
     id="home"
-    class="h-screen relative flex justify-center items-center"
+    class=" h-[80vh] md:h-screen relative flex justify-center items-center"
 >
+
     <ManchaIzqNa />
     <ManchaIzqNe />
     <PuntosIzq />
+
     <main class="flex flex-col items-center">
-        <Logo />
+        <Picture
+            src={logo}
+            formats={['png']}
+            alt="Logo Zack developer"
+            id="logoAnim"
+        />
         <div class="w-[250px] mt-5 text-black font-['MuseoModerno']">
             <p id="textoAnimado" class="border-b-2 border-gray-200 border-dashed">Desarrollador Front-End</p>
             <p>Ilustrador</p>
         </div>
     </main>
+
     <ManchaDerNa />
     <ManchaDerNe />
     <PuntosDer />
 </section>
+
+
+<script>
+
+    function scrollParallax() {
+
+        const narIzq = document.getElementById(`narIzq`)
+        const negIzq = document.getElementById(`negIzq`)
+        const puntosIzq = document.getElementById(`puntosIzq`)
+
+        const narDer = document.getElementById(`narDer`)
+        const negDer = document.getElementById(`negDer`)
+        const puntosDer = document.getElementById(`puntosDer`)
+        
+        const logoAnim = document.getElementById(`logoAnim`)
+
+        
+
+        window.addEventListener('scroll', ()=>{
+
+            let scroll = window.scrollY
+
+            narIzq.style.transform = `translateX(-${scroll * 0.5}px)`
+
+        })
+    }
+    
+    scrollParallax()
+
+
+</script>
 
