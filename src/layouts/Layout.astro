@@ -31,16 +31,20 @@ const { title } = Astro.props;
 	:root {
 		--titulos: 'MuseoModerno', system-ui, sans-serif;
 		--textos: 'Lato', system-ui, sans-serif;
+		--naranjaClaro: #FF8540;
+		--naranjaObs: #FF6025;
+		--gris: #686868;
 	}
 	html {
 		font-family: var(--textos);
+		overflow-x: hidden;
 	}
 	main {
 		margin: auto;
 		padding: 1rem;
 		width: 1100px;
 		max-width: calc(100% - 2rem);
-		color: black;
+		color: var(--gris);
 		font-size: 20px;
 		line-height: 1.6;
 	}
