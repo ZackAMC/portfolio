@@ -1,0 +1,114 @@
+---
+import { proyectos } from "@/lib/proyectos"
+import CardProyect from "@/components/CardProyect.astro"
+---
+
+<section id="proyectos">
+    <main>
+        <h2
+            id="titProy"
+            class=" relative pb-2 mb-14 text-4xl font-['MuseoModerno'] before:content-[''] before:w-[140px] before:h-[3px] before:rounded before:bg-[#FF6025] before:absolute before:bottom-0 before:left-0"
+        > 
+            <span
+                class="font-bold text-[#686868]">Proyectos</span>
+        </h2>
+
+        <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-4 px-7 md:px-0">
+            {
+                proyectos.map(
+                    ({nombre, tecnologias, descripcion, img, link}) => (
+                        <CardProyect
+                            nombre={nombre}
+                            tecnologias={tecnologias}
+                            descripcion={descripcion}
+                            img={img}
+                            link={link}
+                        /> 
+                    )
+                )
+            }
+        </div>
+    </main>
+</section>
+
+<style>
+    h2{
+        transition: .4s all ease;
+        transform: translateX(50%);
+        opacity: 0;
+    }
+    h2.visible{
+        transform: translateX(0%);
+        opacity: 1;
+    }
+</style>
+
+<script>
+    const mainDos = document.getElementById('titProy')
+    const bloques = Array.from(document.getElementsByTagName('article'))
+    // observador al hacer Scroll
+    const animacion = bloques.map( (item, i)=>{
+        return obser(item, i)
+    })
+    function obser(itemAnimar, posicion) {
+        const observadorTres = new IntersectionObserver(itemAnimar =>{
+            setTimeout(() => {
+                itemAnimar.forEach( e => {
+                    if(e.isIntersecting){
+                        itemAnimar[0].target.classList.add('visible')
+                    } else {
+                        itemAnimar[0].target.classList.remove('visible')
+                    }
+                })  
+            }, 300);
+        })
+        observadorTres.observe(itemAnimar)
+    }
+    obser(mainDos, 0)
+    // Asignar delay al entrar segun posicion
+    // Dejamos por fuera resoluciones menores a 640 ya que por defecto la animacion ocurrira segun aparezcan en pantalla
+    function asignarDelay(ancho) {
+        const asignacion = bloques.map((card, i)=>{
+            // Asignacion de clases segun su posicion y el ancho del viewport
+            if(ancho > 640 && ancho < 1024){
+                i % 2 == 0 ?
+                    card.classList.add('primeros'):
+                    card.classList.add('segundos')
+            } else if (ancho >= 1024) {
+                if (i == 0 || i == 4 || i == 8) {
+                    card.classList.add('primeros')
+                }
+                if (i == 1 || i == 5 || i == 9) {
+                    card.classList.add('segundos')
+                }
+                if (i == 2 || i == 6 || i == 10) {
+                    card.classList.add('terceros')
+                }
+                if (i == 3 || i == 7 || i == 11) {
+                    card.classList.add('cuartos')
+                }
+            } else {
+                card.classList.remove('primeros')
+                card.classList.remove('segundos')
+                card.classList.remove('terceros')
+                card.classList.remove('cuartos')
+            }
+        })
+    }
+    // seteamos el ancho segun el viewport
+    let anchoView = 0
+    let anchoInicial = window.innerWidth
+    // llamamos la funcion para hacer la asignacion inicial
+    asignarDelay(anchoInicial)
+    // Detectamos cuando el viewport cambia, limpiamos las clases de los elementos y volvemos a llamar a la funcion para realizar la asignacion dependiendo del ancho de la pantalla
+    window.addEventListener('resize', ()=>{
+        anchoView = window.innerWidth
+        const reset = bloques.map(card=>{
+            card.classList.remove('primeros')
+            card.classList.remove('segundos')
+            card.classList.remove('terceros')
+            card.classList.remove('cuartos')
+        })
+        asignarDelay(anchoView)
+    })
+</script>

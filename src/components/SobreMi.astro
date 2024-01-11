@@ -1,0 +1,90 @@
+---
+import { Picture } from "astro:assets"
+import perfil from "@/img/Perfil.png"
+import FichaGustos from "@/components/FichaGustos.astro"
+import ManchaNarFoto from "@/img/ManchaNarFoto.astro"
+---
+
+<section id="sobre-mi" class=" mb-52">
+    <main class="md:flex justify-between items-center gap-14">
+        <div class=" md:w-1/3 relative imagen mb-10 md:mb-0">
+            <Picture
+                src={perfil}
+                alt="Foto Andres Mila"
+            />
+            <ManchaNarFoto />
+        </div>
+
+        <div class="md:w-2/3 texto">
+            <h2
+                class="relative pb-2 mb-8 text-4xl font-['MuseoModerno'] before:content-[''] before:w-[140px] before:h-[3px] before:rounded before:bg-[#FF6025] before:absolute before:bottom-0 before:left-0">Sobre 
+                <span
+                    class="font-bold text-[#FF6025]">mi</span>
+            </h2>
+            <p class="mb-8">Hola, soy Andrés Mila, desarrollador web e ilustrador con 4 años de experiencia. Especializado en HTML, CSS, JavaScript, API REST y WordPress, destaco en la creación de tiendas en línea con WooCommerce.</p>
+            <ul class="flex items-center gap-3 flex-wrap">
+                <FichaGustos>
+                    Video-juegos
+                </FichaGustos>
+                <FichaGustos>
+                    Series
+                </FichaGustos>
+                <FichaGustos>
+                    Anime
+                </FichaGustos>
+                <FichaGustos>
+                    Cómics
+                </FichaGustos>
+                <FichaGustos>
+                    Películas
+                </FichaGustos>
+            </ul>
+        </div>
+    </main>
+</section>
+
+
+<style>
+    .imagen{
+        transform: translateX(-100%);
+        opacity: 0;
+        transition: .4s transform ease;
+    }
+
+    main.visible .imagen{
+        transform: translateX(0%);
+        opacity: 1;
+        transition: .4s all ease;
+    }
+
+    .texto{
+        transform: translateX(100%);
+        opacity: 0;
+        transition: .4s transform ease;
+    }
+
+    main.visible .texto{
+        transform: translateX(-0%);
+        opacity: 1;
+        transition: .4s all ease;
+    }
+</style>
+
+<script>
+
+    const main = document.querySelector("#sobre-mi main")
+    const bloqueImg = document.querySelector(".imagen")
+
+    const observador = new IntersectionObserver(elementos =>{
+        setTimeout(() => {
+            elementos.forEach( e => {
+                e.isIntersecting?
+                main?.classList.add('visible'):
+                main?.classList.remove('visible')
+            })  
+        }, 200);
+    })
+
+    observador.observe(bloqueImg)
+
+</script>
