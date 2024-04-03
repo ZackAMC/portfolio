@@ -1,10 +1,30 @@
 ---
 import { proyectos } from "@/lib/proyectos"
 import CardProyect from "@/components/CardProyect.astro"
+import ManchaIzqNa from "@/img/ManchaIzqNa.astro"
+import PuntosIzq from "@/img/PuntosIzq.astro"
+import ManchaDerNa from "@/img/ManchaDerNa.astro"
+import PuntosDer from "@/img/PuntosDer.astro"
 ---
 
-<section id="proyectos">
-    <main>
+<section class="relative">
+
+<div
+    id="proyectos"
+    class="
+         absolute
+         top-[-100px]
+         left-0
+    ">
+</div>
+
+    <ManchaIzqNa
+        id="narIzqPro"
+    />
+    <PuntosIzq
+        id="puntosIzqPro"
+    />
+    <main id="proyectos-main">
         <h2
             id="titProy"
             class=" relative pb-2 mb-14 text-4xl font-['MuseoModerno'] before:content-[''] before:w-[140px] before:h-[3px] before:rounded before:bg-[#FF6025] before:absolute before:bottom-0 before:left-0"
@@ -29,7 +49,14 @@ import CardProyect from "@/components/CardProyect.astro"
             }
         </div>
     </main>
+    <ManchaDerNa 
+        id="narDerPro"
+    />
+    <PuntosDer 
+        id="puntosDerPro"
+    />
 </section>
+
 
 <style>
     h2{
@@ -44,6 +71,33 @@ import CardProyect from "@/components/CardProyect.astro"
 </style>
 
 <script>
+
+
+function scrollParallaxProyects() {
+
+    const narIzq = document.getElementById(`narIzqPro`)
+    const puntosIzq = document.getElementById(`puntosIzqPro`)
+    const narDer = document.getElementById(`narDerPro`)
+    const puntosDer = document.getElementById(`puntosDerPro`)
+
+
+
+    window.addEventListener('scroll', ()=>{
+
+        let scroll = window.scrollY
+        
+        narIzq.style.transform = `translateX(-${scroll * 0.10}px)`
+        puntosIzq.style.transform = `translateX(-${scroll * 0.10}px)`
+
+        narDer.style.transform = `translateX(${scroll * 0.10}px)`
+        puntosDer.style.transform = `translateX(${scroll * 0.10}px)`
+
+    })
+    }
+
+    scrollParallaxProyects()
+
+
     const mainDos = document.getElementById('titProy')
     const bloques = Array.from(document.getElementsByTagName('article'))
     // observador al hacer Scroll

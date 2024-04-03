@@ -1,5 +1,12 @@
+---
+interface Props {
+    id: string
+}
+const { id } = Astro.props
+---
+
 <div class="absolute top-0 right-0 z-[-2] translate-x-[90%] translate-y-[20%] lg:translate-x-[60%] lg:translate-y-[50%] xl:translate-x-[37%]">
-    <div id="negDer">
+    <div id=`${id}`>
         <svg
             width="350"
             height="487"
