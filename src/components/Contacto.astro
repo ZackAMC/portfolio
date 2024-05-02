@@ -1,7 +1,11 @@
 ---
-import linkedin from "@/img/LinkedinImg.astro"
-import whatsapp from "@/img/WhatsAppImg.astro"
-import correo from "@/img/MailImg.astro"
+import ItemContacto from "@/components/ItemContacto.astro"
+import Formulario from "@/components/Formulario.astro"
+import Linkedin from "@/img/LinkedinImg.astro"
+import Github from "@/img/Github.astro"
+import Correo from "@/img/MailImg.astro"
+import PuntosContact from "@/img/PuntosContact.astro"
+import ManchaContact from "@/img/ManchaContact.astro"
 ---
 
 <section
@@ -15,25 +19,38 @@ import correo from "@/img/MailImg.astro"
             Contáctame
         </h2>
 
-        <div class="contForm">
-            <form>
-                <label>
-                    <span></span>
-                    <input type="text">
-                </label>
-                <label>
-                    <span></span>
-                    <input type="tel">
-                </label>
-                <label>
-                    <span></span>
-                    <input type="email">
-                </label>
-                <label>
-                    <span></span>
-                    <textarea></textarea>
-                </label>
-            </form>
+        <div>
+            <Formulario />
         </div>
+
+        <div class="">
+
+            <PuntosContact />
+            <ManchaContact />
+
+            <ul>
+                <ItemContacto
+                    link="https://www.linkedin.com/in/andres-mila/"
+                >
+                    <Linkedin />
+                    <span>Linkedin</span>
+                </ItemContacto>
+
+                <ItemContacto
+                    link="https://github.com/ZackAMC"
+                >
+                    <Github />
+                    <span>GitHub</span>
+                </ItemContacto>
+
+                <ItemContacto
+                    link="mailto:andresmila01@gmail.com"
+                >
+                    <Correo />
+                    <span>Correo</span>
+                </ItemContacto>
+            </ul>
+        </div>
+
     </main>
 </section>
