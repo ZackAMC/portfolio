@@ -1,23 +1,132 @@
 ---
-
+import Flecha from "@/img/Flecha.astro"
 ---
 
 <form>
-    <label>
-        <span>Nombre</span>
-        <input type="text" name="nombre">
+    <label class="campo">
+        <input
+            type="text"
+            name="nombre"
+            class="inp"
+        >
+        <span class="spanLable">Nombre</span>
     </label>
-    <label>
-        <span>Teléfono</span>
-        <input type="tel" name="telefono">
+    <label class="campo">
+        <input
+            type="tel"
+            name="telefono"
+            class="inp"
+        >
+        <span class="spanLable">Teléfono</span>
     </label>
-    <label>
-        <span>Correo</span>
-        <input type="email" name="correo">
+    <label class="campo completo">
+        <input
+            type="email"
+            name="correo"
+            class="inp"
+        >
+        <span class="spanLable">Correo</span>
     </label>
-    <label>
-        <span>Mensaje</span>
-        <textarea name="mensaje"></textarea>
+    <label class="campo texto">
+        <textarea name="mensaje" class="inp"></textarea>
+        <span class="spanLable texto">Mensaje</span>
     </label>
-    <button>Enviar</button>
+    <button>Enviar <div class="flecha"><Flecha /></div></button>
 </form>
+
+
+<style>
+    form{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+    .inp{
+        border-bottom: 1px solid rgba(0, 0, 0, .2);
+        outline-style: none;
+        box-shadow: none;
+        color: #1c1c1c;
+        transition: .4s all ease;
+        height: 32px;
+    }
+    .campo{
+        width: 48%;
+        margin-bottom: 20px;
+        height: 70px;
+        display: flex;
+        flex-direction: column-reverse;
+    }
+    .campo.completo{
+        width: 100%;
+    }
+    .campo .inp.active{
+        border-bottom: 1px solid rgba(0, 0, 0, .6);
+    }
+    .campo span{
+        transition: .4s all ease;
+        transform: translateY(100%);
+        pointer-events: none;
+        font-weight: bold;
+        color: #1c1c1c;
+    }
+    .campo .inp.active ~ span{
+        transform: translateY(0%);
+        font-size: 15px;
+    }
+
+    .campo textarea.inp.active ~ span{
+        margin-top: 8px;
+    }
+
+    .campo.texto{
+        width: 100%;
+        height: auto;
+    }
+
+    .campo.texto textarea{
+        width: 100%;
+        min-height: 100px;
+        height: 100px;
+        max-height: 400px;
+    }
+
+    button{
+        background: linear-gradient(90deg, rgba(255,135,66,1) 0%, rgba(255,96,37,1) 100%);        
+        display: flex;
+        align-items: center;
+        color: #fff;
+        font-size: 20px;
+        padding: 5px 40px;
+        border-radius: 50px;
+        transition: .4s all ease;
+    }
+    
+    button:hover{
+        box-shadow: 0px 5px 10px rgba(0,0,0,.2);
+    }
+    .flecha{
+        margin-left: 8px;
+        display: block;
+        transform: scale(1.5);
+        transition: .4s all ease;
+    }
+    button:hover .flecha{
+        transform: translateX(5px) rotate(40deg) scale(1.8);
+    }
+</style>
+
+
+<script>
+    const inputs = Array.from(document.getElementsByClassName("inp"))
+
+    inputs.forEach(inp => {
+        inp.addEventListener("focus", ()=>{
+            inp.classList.add("active");
+        })
+        inp.addEventListener("blur", ()=>{
+            if (inp.value != "") return
+            inp.classList.remove("active");
+        })
+        
+    });
+</script>
