@@ -1,0 +1,53 @@
+---
+import Logob from "@/img/logoB.astro"
+import Ondas from "@/img/OndasGrandes.astro"
+import PuntosFooter from "@/img/PuntosFooter.astro"
+
+---
+
+<section id="footer" class="relative pt-36 z-10 pb-24 overflow-hidden"> 
+    <main>
+        <div id="ondas" class=" absolute top-0 left-0 -z-10">
+            <Ondas />
+        </div>
+        <div class=" flex justify-center align-middle mb-4">
+            <Logob />
+        </div>
+        <ul class="font-['MuseoModerno'] text-white flex align-middle justify-center gap-2">
+            <li><a href="#inicio">Inicio</a></li> - 
+            <li><a href="#sobre-mi">Sobre mi</a></li> - 
+            <li><a href="#proyectos">Proyectos</a></li> - 
+            <li><a href="#contacto">Contáctame</a></li>
+        </ul>
+
+        <div class=" absolute left-0 bottom-0 -translate-x-16 -z-10">
+            <PuntosFooter />
+        </div>
+        <div class=" absolute right-0 bottom-0 -rotate-45 translate-x-28 -z-10">
+            <PuntosFooter />
+        </div>
+        
+        
+
+    </main>
+</section>
+
+
+<style>
+    #ondas{
+        animation: cicloFooter 50s ease infinite;
+    }
+
+    @keyframes cicloFooter{
+        0%{
+            transform: translateX(0%);
+        }
+        50%{
+            transform: translateX(calc(-100% + 100vw));
+        }
+        100%{
+            transform: translateX(0%);
+        }
+    }
+
+</style>
