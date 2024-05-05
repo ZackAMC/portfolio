@@ -50,11 +50,16 @@ import Flecha from "@/img/Flecha.astro"
         height: 32px;
     }
     .campo{
-        width: 48%;
+        width: 100%;
         margin-bottom: 20px;
         height: 70px;
         display: flex;
         flex-direction: column-reverse;
+    }
+    @media (min-width: 1080px) {
+        .campo{
+            width: 48%;
+        }
     }
     .campo.completo{
         width: 100%;
