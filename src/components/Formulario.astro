@@ -8,6 +8,7 @@ import Flecha from "@/img/Flecha.astro"
             type="text"
             name="nombre"
             class="inp"
+            value=""
         >
         <span class="spanLable">Nombre</span>
     </label>
@@ -16,6 +17,7 @@ import Flecha from "@/img/Flecha.astro"
             type="tel"
             name="telefono"
             class="inp"
+            value=""
         >
         <span class="spanLable">Teléfono</span>
     </label>
@@ -24,6 +26,7 @@ import Flecha from "@/img/Flecha.astro"
             type="email"
             name="correo"
             class="inp"
+            value=""
         >
         <span class="spanLable">Correo</span>
     </label>
@@ -124,12 +127,14 @@ import Flecha from "@/img/Flecha.astro"
 <script>
     const inputs = Array.from(document.getElementsByClassName("inp"))
 
+
+
     inputs.forEach(inp => {
         inp.addEventListener("focus", ()=>{
             inp.classList.add("active");
         })
         inp.addEventListener("blur", ()=>{
-            if (inp.value != "") return
+            if ((inp as HTMLInputElement).value != "") return
             inp.classList.remove("active");
         })
         

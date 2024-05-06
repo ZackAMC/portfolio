@@ -86,11 +86,11 @@ function scrollParallaxProyects() {
 
         let scroll = window.scrollY
         
-        narIzq.style.transform = `translateX(-${scroll * 0.10}px)`
-        puntosIzq.style.transform = `translateX(-${scroll * 0.10}px)`
+        narIzq!.style.transform = `translateX(-${scroll * 0.10}px)`
+        puntosIzq!.style.transform = `translateX(-${scroll * 0.10}px)`
 
-        narDer.style.transform = `translateX(${scroll * 0.10}px)`
-        puntosDer.style.transform = `translateX(${scroll * 0.10}px)`
+        narDer!.style.transform = `translateX(${scroll * 0.10}px)`
+        puntosDer!.style.transform = `translateX(${scroll * 0.10}px)`
 
     })
     }
@@ -104,7 +104,7 @@ function scrollParallaxProyects() {
     const animacion = bloques.map( (item, i)=>{
         return obser(item, i)
     })
-    function obser(itemAnimar, posicion) {
+    function obser(itemAnimar : HTMLElement, posicion : number) {
         const observadorTres = new IntersectionObserver(itemAnimar =>{
             setTimeout(() => {
                 itemAnimar.forEach( e => {
@@ -118,10 +118,10 @@ function scrollParallaxProyects() {
         })
         observadorTres.observe(itemAnimar)
     }
-    obser(mainDos, 0)
+    obser(mainDos!, 0)
     // Asignar delay al entrar segun posicion
     // Dejamos por fuera resoluciones menores a 640 ya que por defecto la animacion ocurrira segun aparezcan en pantalla
-    function asignarDelay(ancho) {
+    function asignarDelay(ancho : number) {
         const asignacion = bloques.map((card, i)=>{
             // Asignacion de clases segun su posicion y el ancho del viewport
             if(ancho > 640 && ancho < 1024){

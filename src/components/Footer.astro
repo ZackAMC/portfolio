@@ -35,18 +35,19 @@ import PuntosFooter from "@/img/PuntosFooter.astro"
 
 <style>
     #ondas{
-        animation: cicloFooter 50s ease infinite;
+        animation: cicloFooter 30s ease infinite;
+        transform-origin: top;
     }
 
     @keyframes cicloFooter{
         0%{
-            transform: translateX(0%);
+            transform: translateX(-30%) scale(2);
         }
         50%{
-            transform: translateX(calc(-100% + 100vw));
+            transform: translateX(calc(-100% + 100vw)) scale(2);
         }
         100%{
-            transform: translateX(0%);
+            transform: translateX(-30%) scale(2);
         }
     }
 

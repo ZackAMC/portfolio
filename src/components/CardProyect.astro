@@ -1,5 +1,19 @@
 ---
 import { Picture } from "astro:assets"
+import cynthus from "@/img/Cynthus.jpg";
+import audi from "@/img/audi-col.jpg";
+import finazul from "@/img/finazul.jpg";
+import ays from "@/img/ays.jpg";
+import marketeros from "@/img/Marketeros.jpg";
+import fms from "@/img/FernandaMilaSpa.jpg";
+import dsi from "@/img/DSI.jpg";
+import terracore from "@/img/Terracore.jpg";
+import pelecanus from "@/img/Pelecanus.jpg";
+import marruecos from "@/img/ViajeenMarruecos.jpg";
+import controlgastos from "@/img/controlGastos.jpg";
+import pacientes from "@/img/seguimientoPacientes.jpg";
+import { Image } from "astro:assets"
+
 interface Props {
     nombre: string
     tecnologias: string[]
@@ -26,11 +40,20 @@ import WordPress from "@/icons/WordPress.astro"
     >
         <card class="flex flex-col justify-between w-full">
             <picture class=" aspect-auto md:aspect-video w-full h-auto">
-                <img
-                    src=`../../src/img/${img}.jpg`
-                    alt=`Imágen ejemplo del proyecto ${nombre}`
-                    class=" object-cover w-full"
-                >
+
+                {img == "Cynthus" ? <Image src={cynthus} alt=`Imágen ejemplo del proyecto ${nombre}` class=" object-cover w-full"/> : null}
+                {img == "audi-col" ? <Image src={audi} alt=`Imágen ejemplo del proyecto ${nombre}` class=" object-cover w-full"/> : null}
+                {img == "finazul" ? <Image src={finazul} alt=`Imágen ejemplo del proyecto ${nombre}` class=" object-cover w-full"/> : null}
+                {img == "ays" ? <Image src={ays} alt=`Imágen ejemplo del proyecto ${nombre}` class=" object-cover w-full"/> : null}
+                {img == "Marketeros" ? <Image src={marketeros} alt=`Imágen ejemplo del proyecto ${nombre}` class=" object-cover w-full"/> : null}
+                {img == "FernandaMilaSpa" ? <Image src={fms} alt=`Imágen ejemplo del proyecto ${nombre}` class=" object-cover w-full"/> : null}
+                {img == "DSI" ? <Image src={dsi} alt=`Imágen ejemplo del proyecto ${nombre}` class=" object-cover w-full"/> : null}
+                {img == "Terracore" ? <Image src={terracore} alt=`Imágen ejemplo del proyecto ${nombre}` class=" object-cover w-full"/> : null}
+                {img == "Pelecanus" ? <Image src={pelecanus} alt=`Imágen ejemplo del proyecto ${nombre}` class=" object-cover w-full"/> : null}
+                {img == "ViajeenMarruecos" ? <Image src={marruecos} alt=`Imágen ejemplo del proyecto ${nombre}` class=" object-cover w-full"/> : null}
+                {img == "controlGastos" ? <Image src={controlgastos} alt=`Imágen ejemplo del proyecto ${nombre}` class=" object-cover w-full"/> : null}
+                {img == "seguimientoPacientes" ? <Image src={pacientes} alt=`Imágen ejemplo del proyecto ${nombre}` class=" object-cover w-full"/> : null}
+                
             </picture>
 
             <information class="w-full">

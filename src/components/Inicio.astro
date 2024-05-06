@@ -76,23 +76,24 @@ import logo from "@/img/logo.png"
             let scrollDecimalDos = ((scroll * 3) / 1000)
             let scrollDecimalTres = ((scroll * 2) / 1000)
             
+
             
-            narIzq.style.transform = `translateX(-${scroll * 0.5}px)`
-            negIzq.style.transform = `translateX(-${scroll * 1}px)`
-            puntosIzq.style.transform = `translateX(-${scroll * 1.5}px)`
+            narIzq!.style.transform = `translateX(-${scroll * 0.5}px)`
+            negIzq!.style.transform = `translateX(-${scroll * 1}px)`
+            puntosIzq!.style.transform = `translateX(-${scroll * 1.5}px)`
 
-            narDer.style.transform = `translateX(${scroll * 0.5}px)`
-            negDer.style.transform = `translateX(${scroll * 1}px)`
-            puntosDer.style.transform = `translateX(${scroll * 1.5}px)`
+            narDer!.style.transform = `translateX(${scroll * 0.5}px)`
+            negDer!.style.transform = `translateX(${scroll * 1}px)`
+            puntosDer!.style.transform = `translateX(${scroll * 1.5}px)`
 
-            logoAnim.style.transform = `translateY(-${scroll * 0.3}px)`
-            logoAnim.style.opacity = `${1 - scrollDecimal}`
+            logoAnim!.style.transform = `translateY(-${scroll * 0.3}px)`
+            logoAnim!.style.opacity = `${1 - scrollDecimal}`
 
-            textoAnimado.style.transform = `translateY(-${scroll * 0.2}px)`
-            textoAnimado.style.opacity = `${1 - scrollDecimalDos}`
+            textoAnimado!.style.transform = `translateY(-${scroll * 0.2}px)`
+            textoAnimado!.style.opacity = `${1 - scrollDecimalDos}`
 
-            textoAnimadoDos.style.transform = `translateY(-${scroll * 0.1}px)`
-            textoAnimadoDos.style.opacity = `${1 - scrollDecimalTres}`
+            textoAnimadoDos!.style.transform = `translateY(-${scroll * 0.1}px)`
+            textoAnimadoDos!.style.opacity = `${1 - scrollDecimalTres}`
 
         })
     }
